@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Install and Offline</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width: 390px; height: 844px; position: relative; overflow: hidden; background: var(--bg); color: var(--ink); font-family: Figtree, system-ui, sans-serif; {{vars}}">
+  <div aria-hidden="true" style="position: absolute; inset: 0">
+    <dc-import name="Main" dark="{{dark}}" hint-size="390px,844px"></dc-import>
+  </div>
+
+  <div role="status" style="position: absolute; left: 12px; right: 12px; top: 12px; display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; background: var(--ink); color: var(--bg); font-size: 13px; line-height: 1.35; box-shadow: 0 8px 24px rgba(8, 12, 22, 0.25)">
+    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M2 2l20 20M8.5 16.4a5 5 0 0 1 7 0M5 12.9a10 10 0 0 1 5.2-2.8M19 12.9a10 10 0 0 0-2.3-1.7M12 20h.01"></path></svg>
+    <span><b>You're offline.</b> Everything you add is saved on this phone.</span>
+  </div>
+
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(8, 12, 22, 0.4)"></div>
+
+  <section role="dialog" aria-label="Install Finance OS" style="position: absolute; left: 0; right: 0; bottom: 0; box-sizing: border-box; padding: 10px 20px 28px; border-radius: 28px 28px 0 0; background: var(--surface); display: flex; flex-direction: column; gap: 18px">
+    <span aria-hidden="true" style="align-self: center; width: 40px; height: 5px; border-radius: 3px; background: var(--line)"></span>
+    <div style="display: flex; align-items: center; gap: 14px">
+      <div aria-hidden="true" style="width: 60px; height: 60px; border-radius: 16px; background: var(--accent); color: var(--onAccent); display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', Figtree, sans-serif; font-size: 26px; font-weight: 700; flex: none">₱</div>
+      <div style="display: flex; flex-direction: column; gap: 2px">
+        <h2 style="margin: 0; font-size: 20px; font-weight: 700">Install Finance OS</h2>
+        <span style="font-size: 13px; color: var(--muted)">Add it to your home screen</span>
+      </div>
+    </div>
+    <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 14px">
+      <li style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 28px; height: 28px; border-radius: 8px; background: var(--accentSoft); color: var(--accent); display: flex; align-items: center; justify-content: center; flex: none"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></svg></span><span><b>Opens in one tap</b><br><span style="color: var(--muted)">Full screen, no browser bar</span></span></li>
+      <li style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 28px; height: 28px; border-radius: 8px; background: var(--accentSoft); color: var(--accent); display: flex; align-items: center; justify-content: center; flex: none"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"></path></svg></span><span><b>Works offline</b><br><span style="color: var(--muted)">Log spending with no signal</span></span></li>
+      <li style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 28px; height: 28px; border-radius: 8px; background: var(--accentSoft); color: var(--accent); display: flex; align-items: center; justify-content: center; flex: none"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10 21h4"></path></svg></span><span><b>Payday reminders</b><br><span style="color: var(--muted)">Get a nudge to split your salary</span></span></li>
+    </ul>
+    <div style="display: flex; gap: 10px">
+      <button style="flex: 1; min-height: 52px; border-radius: 16px; border: 1px solid var(--line); background: transparent; color: var(--ink); font: 600 15px Figtree, sans-serif; cursor: pointer">Not now</button>
+      <button style="flex: 2; min-height: 52px; border-radius: 16px; border: 0; background: var(--accent); color: var(--onAccent); font: 700 15px Figtree, sans-serif; cursor: pointer">Install</button>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dark":{"editor":"boolean","default":false,"section":"Theme"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  theme(dark) {
+    const light = { bg: '#F3F5F9', surface: '#FFFFFF', raised: '#E9EDF4', ink: '#121722', muted: '#566073', line: '#DFE4EC', accent: '#2B52DD', accentSoft: '#E4EAFC', onAccent: '#FFFFFF', pos: '#16784A', posSoft: '#E1F3E9', neg: '#B4470D', negSoft: '#FBEADC' };
+    const night = { bg: '#0D1117', surface: '#161B24', raised: '#212835', ink: '#ECEFF4', muted: '#9BA5B6', line: '#283041', accent: '#86A2FF', accentSoft: '#1B2747', onAccent: '#0D1117', pos: '#58CC90', posSoft: '#12301F', neg: '#F39A66', negSoft: '#3A2314' };
+    const t = dark ? night : light;
+    return Object.keys(t).map(function (k) { return '--' + k + ': ' + t[k]; }).join('; ');
+  }
+  renderVals() {
+    const dark = this.props.dark ?? false;
+    return { dark: dark, vars: this.theme(dark) };
+  }
+}
+</script>
+</body>
+</html>

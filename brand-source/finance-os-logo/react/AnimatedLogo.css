@@ -1,0 +1,59 @@
+/* Finance OS animated logo */
+.fos-logo { display: block; overflow: visible; }
+.fos-logo .fos-tile,
+.fos-logo .fos-arm,
+.fos-logo .fos-bar { transform-box: fill-box; }
+
+/* ---------- intro: plays once (splash screen, onboarding) ---------- */
+.fos-logo--intro .fos-tile {
+  transform-origin: center;
+  animation: fos-pop 560ms cubic-bezier(.2, .9, .25, 1.15) both;
+}
+.fos-logo--intro .fos-arm {
+  transform-origin: left center;
+  animation: fos-sweep 620ms cubic-bezier(.16, .9, .24, 1) both;
+}
+.fos-logo--intro .fos-arm-top { animation-delay: 260ms; }
+.fos-logo--intro .fos-arm-mid { animation-delay: 400ms; }
+.fos-logo--intro .fos-bar {
+  transform-origin: center bottom;
+  animation: fos-grow 520ms cubic-bezier(.2, .9, .3, 1.35) both;
+}
+.fos-logo--intro .fos-bar-1 { animation-delay: 760ms; }
+.fos-logo--intro .fos-bar-2 { animation-delay: 870ms; }
+.fos-logo--intro .fos-bar-3 { animation-delay: 980ms; }
+
+/* ---------- loader: bars loop (syncing, loading data) ---------- */
+.fos-logo--loader .fos-bar {
+  transform-origin: center bottom;
+  animation: fos-pulse 1200ms cubic-bezier(.45, 0, .25, 1) infinite;
+}
+.fos-logo--loader .fos-bar-2 { animation-delay: 150ms; }
+.fos-logo--loader .fos-bar-3 { animation-delay: 300ms; }
+
+@keyframes fos-pop {
+  from { opacity: 0; transform: scale(.72); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes fos-sweep {
+  from { opacity: 0; transform: translateX(-56px) skewX(-14deg); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fos-grow {
+  from { opacity: 0; transform: scaleY(0); }
+  40%  { opacity: 1; }
+  to   { opacity: 1; transform: scaleY(1); }
+}
+@keyframes fos-pulse {
+  0%, 100% { transform: scaleY(1); }
+  35%      { transform: scaleY(.45); }
+  65%      { transform: scaleY(1.08); }
+}
+
+/* Respect the system "reduce motion" setting */
+@media (prefers-reduced-motion: reduce) {
+  .fos-logo--intro .fos-tile,
+  .fos-logo--intro .fos-arm,
+  .fos-logo--intro .fos-bar { animation: none; }
+  .fos-logo--loader .fos-bar { animation-duration: 2400ms; }
+}

@@ -1,0 +1,37 @@
+{
+  "v": 3,
+  "createdOnFiles": {"v": 1, "at": "2026-11-07T11:05:00Z"},
+  "title": "Finance OS Revamp",
+  "launch": {"view": "canvas"},
+  "pages": [],
+  "boards": {
+    "Main.dc.html": {"x": 0, "y": 0, "w": 390, "h": 844, "title": "Home", "is_interactive": true, "radius": 36},
+    "Money.dc.html": {"x": 470, "y": 0, "w": 390, "h": 844, "title": "Money", "is_interactive": true, "radius": 36},
+    "Activity.dc.html": {"x": 940, "y": 0, "w": 390, "h": 844, "title": "Activity", "is_interactive": true, "radius": 36},
+    "Goals.dc.html": {"x": 1410, "y": 0, "w": 390, "h": 844, "title": "Goals", "is_interactive": true, "radius": 36},
+    "Insights.dc.html": {"x": 1880, "y": 0, "w": 390, "h": 844, "title": "Insights", "is_interactive": true, "radius": 36},
+    "MainDark.dc.html": {"x": 0, "y": 1264, "w": 390, "h": 844, "title": "Home · Dark", "radius": 36},
+    "MoneyDark.dc.html": {"x": 470, "y": 1264, "w": 390, "h": 844, "title": "Money · Dark", "radius": 36},
+    "ActivityDark.dc.html": {"x": 940, "y": 1264, "w": 390, "h": 844, "title": "Activity · Dark", "radius": 36},
+    "GoalsDark.dc.html": {"x": 1410, "y": 1264, "w": 390, "h": 844, "title": "Goals · Dark", "radius": 36},
+    "InsightsDark.dc.html": {"x": 1880, "y": 1264, "w": 390, "h": 844, "title": "Insights · Dark", "radius": 36},
+    "AddSheet.dc.html": {"x": 0, "y": 2528, "w": 390, "h": 844, "title": "Add transaction (+)", "is_interactive": true, "radius": 36},
+    "Install.dc.html": {"x": 470, "y": 2528, "w": 390, "h": 844, "title": "Install & offline (PWA)", "radius": 36},
+    "TabBar.dc.html": {"x": 940, "y": 2528, "w": 390, "h": 156, "title": "Component · Tab bar"},
+    "DesktopHome.dc.html": {"x": 0, "y": 3792, "w": 1280, "h": 860, "title": "Home · Desktop", "expand": "fill"}
+  },
+  "order": [
+    "Main.dc.html", "Money.dc.html", "Activity.dc.html", "Goals.dc.html", "Insights.dc.html",
+    "MainDark.dc.html", "MoneyDark.dc.html", "ActivityDark.dc.html", "GoalsDark.dc.html", "InsightsDark.dc.html",
+    "AddSheet.dc.html", "Install.dc.html", "TabBar.dc.html", "DesktopHome.dc.html"
+  ],
+  "notes": {
+    "t1": {"x": 0, "y": -300, "text": "Mobile · Light", "kind": "title1", "maxW": 2270},
+    "t2": {"x": 0, "y": 964, "text": "Mobile · Dark", "kind": "title1", "maxW": 2270},
+    "t3": {"x": 0, "y": 2228, "text": "Flows & PWA", "kind": "title1", "maxW": 1330},
+    "t4": {"x": 0, "y": 3492, "text": "Desktop", "kind": "title1", "maxW": 1280},
+    "s1": {"x": 2350, "y": 0, "w": 360, "fill": "blue", "size": "m", "text": "New structure: 11 sections → 5 tabs\n\nHome — Dashboard + quick actions\nMoney — Income + Allocation\nActivity — Spending, Transactions, Categories\nGoals — new screen\nInsights — Reports, Insights, Calendar\n\nSettings and Help move to the profile menu (avatar, top right). The + button opens one Add sheet for expenses, income and transfers."},
+    "s2": {"x": 1410, "y": 2528, "w": 360, "fill": "orange", "size": "m", "text": "PWA notes\n\n• Mobile-first, bottom tabs within thumb reach\n• Install prompt shown after the 2nd visit, never on first load\n• Offline: everything saves on the device; a quiet banner explains it\n• 'PWA Settings' page removed — install lives in the profile menu"}
+  },
+  "designSystems": []
+}

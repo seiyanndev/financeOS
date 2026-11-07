@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width: 390px; height: 844px; position: relative; overflow: hidden; background: var(--bg); color: var(--ink); font-family: Figtree, system-ui, sans-serif; {{vars}}">
+  <main style="position: absolute; inset: 0 0 84px 0; overflow-y: auto; padding: 24px 20px 88px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+
+    <header style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+      <div style="display: flex; flex-direction: column; gap: 2px">
+        <span style="font-size: 13px; color: var(--muted)">Mon, Sep 23</span>
+        <h1 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -0.01em">Good evening, Kurt</h1>
+      </div>
+      <button aria-label="Profile, settings and help" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: 600 16px Figtree, sans-serif; cursor: pointer">K</button>
+    </header>
+
+    <section aria-label="Balance" style="display: flex; flex-direction: column; gap: 14px; padding: 4px 0 0">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted)">Available to spend</span>
+        <span style="font-family: 'Bricolage Grotesque', Figtree, sans-serif; font-size: 48px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums">₱12,480</span>
+        <span style="font-size: 13px; color: var(--pos); font-weight: 600">↑ 12% from last period</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <div style="display: flex; height: 10px; border-radius: 6px; overflow: hidden; background: var(--raised)">
+          <div style="width: 60%; background: var(--neg)"></div>
+          <div style="width: 25%; background: var(--pos)"></div>
+          <div style="width: 9%; background: var(--accent)"></div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--muted)">
+          <span><b style="color: var(--ink); font-weight: 600">₱20,350</b> spent</span>
+          <span><b style="color: var(--ink); font-weight: 600">₱8,500</b> saved</span>
+          <span><b style="color: var(--ink); font-weight: 600">₱3,150</b> set aside</span>
+          <span>of ₱34,000 this month</span>
+        </div>
+      </div>
+    </section>
+
+    <a href="Money.dc.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 14px; padding: 16px; border-radius: 20px; background: var(--accentSoft)">
+      <div style="width: 48px; height: 52px; border-radius: 12px; background: var(--surface); display: flex; flex-direction: column; align-items: center; justify-content: center; flex: none">
+        <span style="font-size: 10px; font-weight: 700; color: var(--accent); letter-spacing: 0.06em">OCT</span>
+        <span style="font-size: 20px; font-weight: 700; line-height: 1">1</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0">
+        <span style="font-size: 13px; color: var(--muted)">Next payday · in 5 days</span>
+        <span style="font-size: 16px; font-weight: 700">Main Job · ₱13,000</span>
+        <span style="font-size: 12px; color: var(--muted)">300 AUD, every 14 days</span>
+      </div>
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+    </a>
+
+    <nav aria-label="Quick actions" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px">
+      <a href="Money.dc.html" style="text-decoration: none; color: var(--ink); display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 12px; font-weight: 600">
+        <span style="width: 52px; height: 52px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; color: var(--pos)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"></path></svg></span>Receive</a>
+      <a href="AddSheet.dc.html" style="text-decoration: none; color: var(--ink); display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 12px; font-weight: 600">
+        <span style="width: 52px; height: 52px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; color: var(--neg)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"></path></svg></span>Spend</a>
+      <a href="Money.dc.html" style="text-decoration: none; color: var(--ink); display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 12px; font-weight: 600">
+        <span style="width: 52px; height: 52px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; color: var(--accent)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v9l6 6"></path><circle cx="12" cy="12" r="9"></circle></svg></span>Allocate</a>
+      <a href="Goals.dc.html" style="text-decoration: none; color: var(--ink); display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 12px; font-weight: 600">
+        <span style="width: 52px; height: 52px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; color: var(--accent)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4"></circle></svg></span>Goal</a>
+    </nav>
+
+    <section aria-label="Top goal" style="display: flex; flex-direction: column; gap: 10px; padding: 16px; border-radius: 20px; background: var(--surface); border: 1px solid var(--line)">
+      <div style="display: flex; justify-content: space-between; align-items: baseline">
+        <h2 style="margin: 0; font-size: 15px; font-weight: 700">Laptop Fund</h2>
+        <a href="Goals.dc.html" style="font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none">All goals</a>
+      </div>
+      <div style="height: 8px; border-radius: 6px; background: var(--raised); overflow: hidden"><div style="width: 42%; height: 100%; background: var(--accent); border-radius: 6px"></div></div>
+      <div style="display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums"><span><b style="color: var(--ink)">₱25,000</b> of ₱60,000</span><span>42%</span></div>
+    </section>
+
+    <section aria-label="Recent activity" style="display: flex; flex-direction: column; gap: 4px">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 6px">
+        <h2 style="margin: 0; font-size: 15px; font-weight: 700">Recent</h2>
+        <a href="Activity.dc.html" style="font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none">See all</a>
+      </div>
+      <sc-for list="{{tx}}" as="t" hint-placeholder-count="4">
+        <div style="display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line)">
+          <span style="width: 40px; height: 40px; border-radius: 12px; background: var(--raised); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--muted); flex: none">{{t.ini}}</span>
+          <div style="display: flex; flex-direction: column; gap: 1px; flex: 1; min-width: 0">
+            <span style="font-size: 15px; font-weight: 600">{{t.name}}</span>
+            <span style="font-size: 12px; color: var(--muted)">{{t.meta}}</span>
+          </div>
+          <span style="font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; color: {{t.color}}">{{t.amt}}</span>
+        </div>
+      </sc-for>
+    </section>
+  </main>
+  <div style="position: absolute; left: 0; bottom: 0; width: 390px; height: 156px; pointer-events: none">
+    <dc-import name="TabBar" active="home" dark="{{dark}}" hint-size="390px,156px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dark":{"editor":"boolean","default":false,"section":"Theme"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  theme(dark) {
+    const light = { bg: '#F3F5F9', surface: '#FFFFFF', raised: '#E9EDF4', ink: '#121722', muted: '#566073', line: '#DFE4EC', accent: '#2B52DD', accentSoft: '#E4EAFC', onAccent: '#FFFFFF', pos: '#16784A', posSoft: '#E1F3E9', neg: '#B4470D', negSoft: '#FBEADC' };
+    const night = { bg: '#0D1117', surface: '#161B24', raised: '#212835', ink: '#ECEFF4', muted: '#9BA5B6', line: '#283041', accent: '#86A2FF', accentSoft: '#1B2747', onAccent: '#0D1117', pos: '#58CC90', posSoft: '#12301F', neg: '#F39A66', negSoft: '#3A2314' };
+    const t = dark ? night : light;
+    return Object.keys(t).map(function (k) { return '--' + k + ': ' + t[k]; }).join('; ');
+  }
+  renderVals() {
+    const dark = this.props.dark ?? false;
+    const pos = 'var(--pos)', ink = 'var(--ink)';
+    return {
+      dark: dark,
+      vars: this.theme(dark),
+      tx: [
+        { ini: 'GF', name: 'GrabFood', meta: 'Food · Sep 23', amt: '−₱350', color: ink },
+        { ini: 'LF', name: 'Laptop Fund', meta: 'Moved to goal · Sep 22', amt: '₱2,000', color: ink },
+        { ini: 'EB', name: 'Electricity bill', meta: 'Bills · Sep 20', amt: '−₱1,350', color: ink },
+        { ini: 'PT', name: 'Part-Time Job', meta: 'Salary · Sep 15', amt: '+₱4,000', color: pos }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

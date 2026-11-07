@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Activity</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width: 390px; height: 844px; position: relative; overflow: hidden; background: var(--bg); color: var(--ink); font-family: Figtree, system-ui, sans-serif; {{vars}}">
+  <main style="position: absolute; inset: 0 0 84px 0; overflow-y: auto; padding: 24px 20px 88px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
+
+    <header style="display: flex; align-items: flex-end; justify-content: space-between; gap: 12px">
+      <h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">Activity</h1>
+      <button style="border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 12px; min-height: 40px; padding: 0 14px; font: 600 13px Figtree, sans-serif; cursor: pointer">Categories</button>
+    </header>
+
+    <label for="act-search" style="display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 14px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); color: var(--muted)">
+      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
+      <input id="act-search" type="search" placeholder="Search payee, note or amount" aria-label="Search activity" style="flex: 1; min-width: 0; border: 0; background: transparent; color: var(--ink); font: 400 15px Figtree, sans-serif; outline: none">
+    </label>
+
+    <div role="group" aria-label="Filter" style="display: flex; gap: 8px; flex-wrap: wrap">
+      <sc-for list="{{chips}}" as="c" hint-placeholder-count="4">
+        <button onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid {{c.border}}; background: {{c.bg}}; color: {{c.fg}}; font: 600 13px Figtree, sans-serif; cursor: pointer">{{c.label}}</button>
+      </sc-for>
+    </div>
+
+    <section aria-label="September summary" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+      <div style="display: flex; flex-direction: column; gap: 4px; padding: 12px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line)">
+        <span style="font-size: 11px; color: var(--muted); font-weight: 600">Spent</span>
+        <span style="font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums">₱20,350</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px; padding: 12px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line)">
+        <span style="font-size: 11px; color: var(--muted); font-weight: 600">Per day</span>
+        <span style="font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums">₱678</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px; padding: 12px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line)">
+        <span style="font-size: 11px; color: var(--muted); font-weight: 600">Top</span>
+        <span style="font-size: 16px; font-weight: 700">Food</span>
+      </div>
+    </section>
+
+    <section aria-label="Transactions" style="display: flex; flex-direction: column">
+      <sc-for list="{{rows}}" as="r" hint-placeholder-count="5">
+        <div style="display: flex; flex-direction: column">
+          <sc-if value="{{r.head}}" hint-placeholder-val="{{ false }}">
+            <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 14px 0 4px">{{r.day}}</span>
+          </sc-if>
+          <div style="display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line)">
+            <span style="width: 40px; height: 40px; border-radius: 12px; background: {{r.tint}}; color: {{r.tintInk}}; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex: none">{{r.ini}}</span>
+            <div style="display: flex; flex-direction: column; gap: 1px; flex: 1; min-width: 0">
+              <span style="font-size: 15px; font-weight: 600">{{r.name}}</span>
+              <span style="font-size: 12px; color: var(--muted)">{{r.cat}}</span>
+            </div>
+            <span style="font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; color: {{r.color}}">{{r.amt}}</span>
+          </div>
+        </div>
+      </sc-for>
+      <sc-if value="{{empty}}" hint-placeholder-val="{{ false }}">
+        <p style="margin: 24px 0; text-align: center; color: var(--muted); font-size: 14px">Nothing here for this filter.</p>
+      </sc-if>
+    </section>
+  </main>
+  <div style="position: absolute; left: 0; bottom: 0; width: 390px; height: 156px; pointer-events: none">
+    <dc-import name="TabBar" active="activity" dark="{{dark}}" hint-size="390px,156px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dark":{"editor":"boolean","default":false,"section":"Theme"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  theme(dark) {
+    const light = { bg: '#F3F5F9', surface: '#FFFFFF', raised: '#E9EDF4', ink: '#121722', muted: '#566073', line: '#DFE4EC', accent: '#2B52DD', accentSoft: '#E4EAFC', onAccent: '#FFFFFF', pos: '#16784A', posSoft: '#E1F3E9', neg: '#B4470D', negSoft: '#FBEADC' };
+    const night = { bg: '#0D1117', surface: '#161B24', raised: '#212835', ink: '#ECEFF4', muted: '#9BA5B6', line: '#283041', accent: '#86A2FF', accentSoft: '#1B2747', onAccent: '#0D1117', pos: '#58CC90', posSoft: '#12301F', neg: '#F39A66', negSoft: '#3A2314' };
+    const t = dark ? night : light;
+    return Object.keys(t).map(function (k) { return '--' + k + ': ' + t[k]; }).join('; ');
+  }
+  renderVals() {
+    const self = this;
+    const dark = this.props.dark ?? false;
+    const f = (this.state && this.state.filter) || 'all';
+    const kinds = { out: ['var(--negSoft)', 'var(--neg)', 'var(--ink)'], in: ['var(--posSoft)', 'var(--pos)', 'var(--pos)'], goal: ['var(--accentSoft)', 'var(--accent)', 'var(--ink)'] };
+    const all = [
+      { day: 'Mon, Sep 23', ini: 'GF', name: 'GrabFood', cat: 'Food', amt: '−₱350', k: 'out' },
+      { day: 'Sun, Sep 22', ini: 'LF', name: 'Laptop Fund', cat: 'Moved to goal', amt: '₱2,000', k: 'goal' },
+      { day: 'Fri, Sep 20', ini: 'EB', name: 'Electricity bill', cat: 'Bills', amt: '−₱1,350', k: 'out' },
+      { day: 'Sun, Sep 15', ini: 'PT', name: 'Part-Time Job', cat: 'Salary', amt: '+₱4,000', k: 'in' },
+      { day: 'Sat, Sep 14', ini: 'GR', name: 'Grocery', cat: 'Food', amt: '−₱1,200', k: 'out' }
+    ];
+    const map = { all: null, spending: 'out', income: 'in', goals: 'goal' };
+    let last = '';
+    const rows = all.filter(function (r) { return !map[f] || r.k === map[f]; }).map(function (r) {
+      const head = r.day !== last; last = r.day;
+      const k = kinds[r.k];
+      return Object.assign({}, r, { head: head, tint: k[0], tintInk: k[1], color: k[2] });
+    });
+    const chips = [['all', 'All'], ['spending', 'Spending'], ['income', 'Income'], ['goals', 'Goals']].map(function (c) {
+      const on = c[0] === f;
+      return { label: c[1], on: on ? 'true' : 'false', bg: on ? 'var(--ink)' : 'var(--surface)', fg: on ? 'var(--bg)' : 'var(--ink)', border: on ? 'var(--ink)' : 'var(--line)', pick: function () { self.setState({ filter: c[0] }); } };
+    });
+    return { dark: dark, vars: this.theme(dark), rows: rows, chips: chips, empty: rows.length === 0 };
+  }
+}
+</script>
+</body>
+</html>

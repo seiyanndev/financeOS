@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tab Bar</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width: 390px; height: 156px; position: relative; font-family: Figtree, system-ui, sans-serif; pointer-events: none; {{vars}}">
+  <a href="AddSheet.dc.html" aria-label="Add a transaction" style="pointer-events: auto; position: absolute; right: 20px; top: 0; width: 60px; height: 60px; border-radius: 20px; background: var(--accent); color: var(--onAccent); display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 24px rgba(16, 28, 64, 0.28); text-decoration: none">
+    <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+  </a>
+  <nav aria-label="Main" style="pointer-events: auto; position: absolute; left: 0; right: 0; bottom: 0; height: 84px; box-sizing: border-box; padding: 8px 8px 22px; background: var(--surface); border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(5, minmax(0, 1fr))">
+    <a href="Main.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-size: 11px; font-weight: {{w.home}}; color: {{c.home}}">
+      <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"></path></svg>Home</a>
+    <a href="Money.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-size: 11px; font-weight: {{w.money}}; color: {{c.money}}">
+      <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18M16 15h2"></path></svg>Money</a>
+    <a href="Activity.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-size: 11px; font-weight: {{w.activity}}; color: {{c.activity}}">
+      <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"></path></svg>Activity</a>
+    <a href="Goals.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-size: 11px; font-weight: {{w.goals}}; color: {{c.goals}}">
+      <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1"></circle></svg>Goals</a>
+    <a href="Insights.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-size: 11px; font-weight: {{w.insights}}; color: {{c.insights}}">
+      <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg>Insights</a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"active":{"editor":"enum","options":["home","money","activity","goals","insights"],"default":"home"},"dark":{"editor":"boolean","default":false,"section":"Theme"},"$preview":{"width":390,"height":156}}'>
+class Component extends DCLogic {
+  theme(dark) {
+    const light = { bg: '#F3F5F9', surface: '#FFFFFF', raised: '#E9EDF4', ink: '#121722', muted: '#566073', line: '#DFE4EC', accent: '#2B52DD', accentSoft: '#E4EAFC', onAccent: '#FFFFFF', pos: '#16784A', posSoft: '#E1F3E9', neg: '#B4470D', negSoft: '#FBEADC' };
+    const night = { bg: '#0D1117', surface: '#161B24', raised: '#212835', ink: '#ECEFF4', muted: '#9BA5B6', line: '#283041', accent: '#86A2FF', accentSoft: '#1B2747', onAccent: '#0D1117', pos: '#58CC90', posSoft: '#12301F', neg: '#F39A66', negSoft: '#3A2314' };
+    const t = dark ? night : light;
+    return Object.keys(t).map(function (k) { return '--' + k + ': ' + t[k]; }).join('; ');
+  }
+  renderVals() {
+    const active = this.props.active ?? 'home';
+    const tabs = ['home', 'money', 'activity', 'goals', 'insights'];
+    const c = {}, w = {};
+    tabs.forEach(function (k) { c[k] = k === active ? 'var(--accent)' : 'var(--muted)'; w[k] = k === active ? '700' : '500'; });
+    return { vars: this.theme(this.props.dark ?? false), c: c, w: w };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+# Dependencies and build output
+node_modules
+dist
+dev-dist
+coverage
+
+# Local env and editor/OS files
+*.local
+.env
+.env.*
+!.env.example
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+*.log
+
+# Vercel CLI link (created by `npx vercel`)
+.vercel
+
+# Raw downloads; their contents are unzipped in design-reference/ and brand-source/
+*.zip

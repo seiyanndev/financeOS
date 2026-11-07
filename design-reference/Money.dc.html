@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Money</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width: 390px; height: 844px; position: relative; overflow: hidden; background: var(--bg); color: var(--ink); font-family: Figtree, system-ui, sans-serif; {{vars}}">
+  <main style="position: absolute; inset: 0 0 84px 0; overflow-y: auto; padding: 24px 20px 88px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
+
+    <header style="display: flex; flex-direction: column; gap: 4px">
+      <h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">Money</h1>
+      <p style="margin: 0; font-size: 14px; color: var(--muted)">What comes in, and where each peso goes.</p>
+    </header>
+
+    <section aria-label="Income this month" style="display: flex; flex-direction: column; gap: 6px">
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted)">Income · September</span>
+      <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap">
+        <span style="font-family: 'Bricolage Grotesque', Figtree, sans-serif; font-size: 40px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums">₱34,000</span>
+        <span style="font-size: 13px; color: var(--pos); font-weight: 600">2 salaries · ↑ 12%</span>
+      </div>
+    </section>
+
+    <section aria-label="Paydays" style="display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; justify-content: space-between; align-items: baseline">
+        <h2 style="margin: 0; font-size: 15px; font-weight: 700">Paydays</h2>
+        <button style="border: 0; background: none; padding: 0; font: 600 13px Figtree, sans-serif; color: var(--accent); cursor: pointer">Add source</button>
+      </div>
+      <div style="display: flex; flex-direction: column; border-radius: 20px; background: var(--surface); border: 1px solid var(--line); overflow: hidden">
+        <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--line)">
+          <div style="display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0">
+            <span style="font-size: 15px; font-weight: 700">Main Job</span>
+            <span style="font-size: 12px; color: var(--muted)">300 AUD ≈ ₱13,000 · every 14 days</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px">
+            <span style="font-size: 13px; font-weight: 700; color: var(--accent)">Oct 1</span>
+            <span style="font-size: 12px; color: var(--muted)">in 5 days</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px">
+          <div style="display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0">
+            <span style="font-size: 15px; font-weight: 700">Part-Time Job</span>
+            <span style="font-size: 12px; color: var(--muted)">₱4,000 · every 15 days · freelance</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px">
+            <span style="font-size: 13px; font-weight: 700; color: var(--accent)">Oct 3</span>
+            <span style="font-size: 12px; color: var(--muted)">in 7 days</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Where the money went" style="display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: 20px; background: var(--surface); border: 1px solid var(--line)">
+      <h2 style="margin: 0; font-size: 15px; font-weight: 700">Where September's ₱34,000 went</h2>
+      <div style="display: flex; height: 14px; border-radius: 8px; overflow: hidden; gap: 2px">
+        <div style="width: 60%; background: var(--neg)"></div>
+        <div style="width: 25%; background: var(--pos)"></div>
+        <div style="width: 9%; background: var(--accent)"></div>
+        <div style="width: 6%; background: var(--raised)"></div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px; font-variant-numeric: tabular-nums">
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px"><span style="width: 10px; height: 10px; border-radius: 3px; background: var(--neg); flex: none"></span><span style="flex: 1; color: var(--muted)">Spent</span><b>₱20,350</b></div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px"><span style="width: 10px; height: 10px; border-radius: 3px; background: var(--pos); flex: none"></span><span style="flex: 1; color: var(--muted)">Saved</span><b>₱8,500</b></div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px"><span style="width: 10px; height: 10px; border-radius: 3px; background: var(--accent); flex: none"></span><span style="flex: 1; color: var(--muted)">Set aside</span><b>₱3,150</b></div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px"><span style="width: 10px; height: 10px; border-radius: 3px; background: var(--raised); border: 1px solid var(--line); box-sizing: border-box; flex: none"></span><span style="flex: 1; color: var(--muted)">Left</span><b>₱2,000</b></div>
+      </div>
+    </section>
+
+    <button style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 64px; padding: 14px 18px; border: 0; border-radius: 20px; background: var(--accent); color: var(--onAccent); text-align: left; cursor: pointer; font-family: Figtree, sans-serif">
+      <span style="display: flex; flex-direction: column; gap: 2px">
+        <span style="font-size: 16px; font-weight: 700">Plan the Oct 1 paycheck</span>
+        <span style="font-size: 13px; opacity: 0.85">Split ₱13,000 using your template</span>
+      </span>
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+    </button>
+
+    <section aria-label="Received" style="display: flex; flex-direction: column">
+      <h2 style="margin: 0 0 6px; font-size: 15px; font-weight: 700">Received</h2>
+      <sc-for list="{{rows}}" as="r" hint-placeholder-count="3">
+        <div style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line)">
+          <div style="display: flex; flex-direction: column; gap: 1px; flex: 1; min-width: 0">
+            <span style="font-size: 15px; font-weight: 600">{{r.name}}</span>
+            <span style="font-size: 12px; color: var(--muted)">{{r.date}}</span>
+          </div>
+          <span style="font-size: 15px; font-weight: 700; color: var(--pos); font-variant-numeric: tabular-nums">{{r.amt}}</span>
+        </div>
+      </sc-for>
+    </section>
+  </main>
+  <div style="position: absolute; left: 0; bottom: 0; width: 390px; height: 156px; pointer-events: none">
+    <dc-import name="TabBar" active="money" dark="{{dark}}" hint-size="390px,156px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dark":{"editor":"boolean","default":false,"section":"Theme"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  theme(dark) {
+    const light = { bg: '#F3F5F9', surface: '#FFFFFF', raised: '#E9EDF4', ink: '#121722', muted: '#566073', line: '#DFE4EC', accent: '#2B52DD', accentSoft: '#E4EAFC', onAccent: '#FFFFFF', pos: '#16784A', posSoft: '#E1F3E9', neg: '#B4470D', negSoft: '#FBEADC' };
+    const night = { bg: '#0D1117', surface: '#161B24', raised: '#212835', ink: '#ECEFF4', muted: '#9BA5B6', line: '#283041', accent: '#86A2FF', accentSoft: '#1B2747', onAccent: '#0D1117', pos: '#58CC90', posSoft: '#12301F', neg: '#F39A66', negSoft: '#3A2314' };
+    const t = dark ? night : light;
+    return Object.keys(t).map(function (k) { return '--' + k + ': ' + t[k]; }).join('; ');
+  }
+  renderVals() {
+    const dark = this.props.dark ?? false;
+    return {
+      dark: dark,
+      vars: this.theme(dark),
+      rows: [
+        { name: 'Main Job', date: 'Sep 17 · salary', amt: '+₱12,000' },
+        { name: 'Part-Time Job', date: 'Sep 15 · freelance', amt: '+₱4,000' },
+        { name: 'Main Job', date: 'Sep 3 · salary', amt: '+₱12,000' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
